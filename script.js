@@ -10,7 +10,7 @@ $(function(){
   $btn.on('click', function(e) {
     var convert = $('#input-text').val(); //getting text in text field
     var converted_text = convert.split(" ").join('+');
-    var url = "https://yoda.p.mashape.com/yoda?sentence="+ converted_text;
+    var url = "https://yoda.p.mashape.com/yoda?sentence=" + converted_text;
 
     // prevent the default behavior of the link
     e.preventDefault();
