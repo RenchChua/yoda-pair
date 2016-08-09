@@ -32,6 +32,7 @@ $(function(){
   function successFunction(responseText, textStatus, request) {
     console.log(responseText, textStatus, request);
     $result.text(responseText);
+    responsiveVoice.speak(responseText, "UK English Male");
     $result_container.css('display', 'block');
     $loader.hide();
   }
