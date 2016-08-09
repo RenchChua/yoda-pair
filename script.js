@@ -4,6 +4,7 @@ $(function(){
   var $btn = $('#yod-btn');
   var $result = $('#result');
   var $result_container = $('.result-container');
+  var $loader  = $('.loader');
 
 
   $btn.on('click', function(e) {
@@ -20,9 +21,9 @@ $(function(){
       headers: {'X-Mashape-Key': '8o4A3dkLOgmshJz2fUkqgTnicMssp1KObfKjsn0zzakfS5UGHc',
                 'Accept': 'text/plain'},
       // // show the loader before making the request
-      // beforeSend: function() {
-      //   $loader.show();
-      // }
+      beforeSend: function() {
+        $loader.show();
+      }
     }).done(successFunction)
       .fail(failFunction)
       .always(alwaysFunction);
@@ -32,6 +33,7 @@ $(function(){
     console.log(responseText, textStatus, request);
     $result.text(responseText);
     $result_container.css('display', 'block');
+    $loader.hide();
   }
 
   // fail function
