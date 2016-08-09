@@ -3,7 +3,7 @@ $(function(){
   var $input = $('#input-text');
   var $btn = $('#yod-btn');
   var $result = $('#result');
-
+  var $result_container = $('.result-container');
 
 
   $btn.on('click', function(e) {
@@ -31,7 +31,7 @@ $(function(){
   function successFunction(responseText, textStatus, request) {
     console.log(responseText, textStatus, request);
     $result.text(responseText);
-    $result.css('border', '1px solid #e8e8e8');
+    $result_container.css('display', 'block');
   }
 
   // fail function
