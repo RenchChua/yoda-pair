@@ -1,29 +1,47 @@
 $(function(){
 
   var $input = $('#input-text');
-  var convert = $('#input-text').val(); //getting text in text field
-  var converted_text = convert.split(" ").join('+');
   var $btn = $('#yod-btn');
   var $result = $('#result');
-  var url = "https://yoda.p.mashape.com/yoda?sentence="+converted_text;
 
-  $btn.on('click', function() {
 
-    $(this).hide();
 
-    $result.load(url, completeFunction);
+  $btn.on('click', function(e) {
+    var convert = $('#input-text').val(); //getting text in text field
+    var converted_text = convert.split(" ").join('+');
+    var url = "https://yoda.p.mashape.com/yoda?sentence="+ converted_text;
+
+    // prevent the default behavior of the link
+    e.preventDefault();
+
+    // execute the AJAX request
+    $.ajax({
+      url: url,
+      headers: {'X-Mashape-Key': '8o4A3dkLOgmshJz2fUkqgTnicMssp1KObfKjsn0zzakfS5UGHc',
+                'Accept': 'text/plain'},
+      // // show the loader before making the request
+      // beforeSend: function() {
+      //   $loader.show();
+      // }
+    }).done(successFunction)
+      .fail(failFunction)
+      .always(alwaysFunction);
   });
 
-  function completeFunction(responseText, textStatus, request) {
-    // 6. see the return $.load();
+  function successFunction(responseText, textStatus, request) {
     console.log(responseText, textStatus, request);
-
-    // 7. implement changes as per first lab
+    $result.text(responseText);
     $result.css('border', '1px solid #e8e8e8');
-
-    // 8. check if the callback can detect error by changing the url
-    if(textStatus == 'error') {
-        $result.text('An error occurred during your request: ' +  request.status + ' ' + request.statusText);
-    }
   }
+
+  // fail function
+  function failFunction(request, textStatus, errorThrown) {
+    $result.text('An error occurred during your request: ' + request.status + ' ' + textStatus + ' ' + errorThrown);
+  }
+
+
+  // always function
+  function alwaysFunction() {
+  }
+
 });
