@@ -1,0 +1,55 @@
+#pag-img{
+  display: block;
+  margin: auto;
+  margin-top: 30px;
+  width: 400px;
+  height: auto;
+  border-radius: 8px;
+}
+
+.yoda h3{
+  font-size: 46px;
+}
+
+.yoda{
+  display: block;
+  margin: auto;
+  text-align: center;
+}
+
+.input-container{
+  width: 500px;
+  display: block;
+  margin: auto;
+  margin-top: 30px;
+}
+
+#input-text{
+  display: block;
+  margin: auto;
+  width: 400px;
+}
+
+#yod-btn{
+  display: block;
+  margin: auto;
+  margin-top: 20px;
+}
+
+.result-container{
+  display: none;
+  margin: auto;
+  margin-top: 30px;
+  border-radius: 6px;
+  width: 400px;
+  height: 100px;
+  background-color: #f2eee6;
+  -webkit-box-shadow: 17px 9px 26px -1px rgba(143,135,143,0.62);
+  -moz-box-shadow: 17px 9px 26px -1px rgba(143,135,143,0.62);
+  box-shadow: 17px 9px 26px -1px rgba(143,135,143,0.62);
+}
+
+.result-container p {
+  padding: 10px;
+  font-size: 20px;
+}
